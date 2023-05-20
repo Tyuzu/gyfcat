@@ -18,6 +18,7 @@ func main() {
 	router := httprouter.New()
 	router.GET("/", Index)
 	router.GET("/vid", Vid)
+	router.GET("/gif", Gif)
 	router.GET("/hello/:name", Hello)
 
 	router.ServeFiles("/v/*filepath", http.Dir("./uploads"))
@@ -31,6 +32,11 @@ func Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 func Vid(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	tmpl.ExecuteTemplate(w, "head.html", nil)
 	tmpl.ExecuteTemplate(w, "viewpost.html", nil)
+}
+
+func Gif(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+	tmpl.ExecuteTemplate(w, "head.html", nil)
+	tmpl.ExecuteTemplate(w, "viewgif.html", nil)
 }
 
 func Hello(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
