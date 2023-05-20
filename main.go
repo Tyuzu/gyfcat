@@ -35,7 +35,7 @@ func Vid(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 }
 
 func Gif(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-	tmpl.ExecuteTemplate(w, "head.html", nil)
+	tmpl.ExecuteTemplate(w, "headg.html", nil)
 	tmpl.ExecuteTemplate(w, "viewgif.html", nil)
 }
 
